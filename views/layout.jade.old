@@ -1,0 +1,12 @@
+!!!
+html
+  head
+    title= title
+    script(src='http://underscorejs.org/underscore-min.js')
+    script(src='http://ksikka.mellonstand.jit.su/socket.io/socket.io.js')
+    script(src='http://ksikka.mellonstand.jit.su/javascripts/s.js')
+    //script(src='http://localhost:8080/socket.io/socket.io.js')
+    //script(src='http://localhost:8080/javascripts/s.js')
+
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body!= body

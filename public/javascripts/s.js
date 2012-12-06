@@ -1,4 +1,5 @@
-var socket = io.connect('http://192.168.1.129:8080');
+var socket = io.connect('http://ksikka.mellonstand.jit.su/');
+//var socket = io.connect('http://localhost:8080/');
 
 /* FUNCTIONS */
 function mealToString(m){
@@ -6,23 +7,6 @@ function mealToString(m){
                       , "\nFood: ", m.food
                       , "\nPrice:", m.price]
                     ,function(a,b) {return a.concat(b)})
-}
-
-function populate(meals) {
-  var e = document.getElementById("meals");
-  if (!e) {
-    alert ('no such element');
-    return;
-  }
-  else {
-    _.each(meals, function(m){
-      var p = document.createElement('p');
-      var str = mealToString(m);
-      p.appendChild(document.createTextNode(str));
-      e.appendChild(p);
-
-    });
-  }
 }
 
 function addMeal(m) {
@@ -33,10 +17,41 @@ function addMeal(m) {
   }
   else {
     var p = document.createElement('p');
+    p.setAttribute('data_id',m.id);
     var str = mealToString(m);
     p.appendChild(document.createTextNode(str));
+
     e.insertBefore(p,e.firstChild);
   }
+}
+
+function populate(meals) {
+  var e = document.getElementById("meals");
+  if (!e) {
+    alert ('no such element');
+    return;
+  }
+  else {
+    _.each(meals,addMeal);
+  }
+}
+
+function delMeal(id) {
+  var mealsdiv = document.getElementById("meals");
+  var ps = mealsdiv.childNodes;
+  for (var i = 0; i < ps.length; i++)
+  {
+    if(ps.item(i).getAttribute('data_id') === id.toString())
+    {
+      mealsdiv.removeChild(ps.item(i));
+      break;
+    }
+  }
+}
+
+function testDelMeal(id) {
+  delMeal(id);
+  socket.emit('delMeal',id);
 }
 
 function makeNewMeal() {
@@ -51,6 +66,8 @@ function makeNewMeal() {
         , food:foods[_.random(foods.length-1)]
        , price:_.random(200)/10.0 };
 
+  m.password="techcomiscool";
+  //addMeal(m);
   socket.emit('sellMeal',m);
   return m;
 }
@@ -61,4 +78,7 @@ socket.on('initData', function (meals) {
 });
 socket.on('newMeal', function (m) {
   addMeal(m);
+});
+socket.on('delMeal', function (id) {
+  delMeal(id);
 });

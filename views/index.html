@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/homeStyle.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/homeScripts.js"></script>
+
+</head>
+
+
+<body>
+	<div id="mainBar" hidden="true">
+		<button id="menu">Menu</button>
+		<button id="sell" onclick="showSellPane()">Sell</button>
+		<form id="searchBar" contenteditable="true">
+			<input id="searchBarInput" type="text" maxlength="500" value="Type Your Search Here"></input>
+		</form>
+	</div> <!-- End of Main Bar -->
+	
+	<div id="items" hidden="true">
+		<ul>
+			<li id="item1">
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button onclick="boop();" class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li id="item2">
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://blog.itssimplyplaced.com/wp-content/uploads/2012/02/healthy_meal.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$4</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Gorumet Salad</div>
+						<div class="itemAvailability">West Wing, Until Midnight</div>
+					</div>
+				</div>
+			</li>
+			<li id="item3">
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://media1.arabia.msn.com/medialib/2012/10/05/pasta-salad2.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="top">
+						<div class="itemProfilePic">
+							<img class="itemProfilePic" src="/images/blank.jpeg">
+						</div>
+						<div class="itemFoodPic"></div>
+							<img class="itemFoodPic" src="http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg">
+						<div class="itemTitle"></div>
+						<div class="itemBuyButon">
+							 <button class="itemBuyButton">$2</button>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="itemTitle">Cherry Pie</div>
+						<div class="itemAvailability">Mudge House, Until 9pm</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div> <!-- End of Items> -->
+	<div id="infoPane" hidden="true">
+		<h2 id="itemInfoTitle">Cherry Pie - $2</h2>
+		<h3 id="itemInfoSeller">Seller: Jan Doe</h3>
+		<h3 id="itemInfoLocation">Location: Mudge House</h3>
+		<h3 id="itemInfoExpiration">Expires: At 9pm</h3>
+		<h3 id="itemInfoContact">Contact: xxx-xxx-xxxx</h3>
+		<h4 id="itemInfoDesc">I made pie and have an extra slice!</h4>
+	</div> <!-- End of inforPane -->
+	<div id="sellPane" hidden="true">
+		<h2>Sell an Item</h2> 
+		<h4>Item Title:</h4>
+		<input type="text" id="titleInput"></input>
+		<h4>Price:</h4>
+		<input type="text" id="priceInput"></input>
+		<h4>Location:</h4>
+		<input type="text" id="locationInput"></input>
+		<h4>Expiration:</h4>
+		<input type="text" id="expirationInput"></input>
+		<h4>Description:</h4>
+		<textarea id="descriptionInput"></textarea><p>
+		<button id="submit" onclick="submitFoodItem()">Submit</button>
+	</div> <!-- End of SellPane -->
+	<div id="authPanel">
+		<h2>Welcome to Mellon Stand</h2> 
+		<h3>Please Login:</h3> 
+		<h4>Username:</h4> 
+		<form><input type="text" name="username" length="10"></form>
+		<h4>Password: </h4>
+		<form><input type="password" name="pswd" length="10"></form>
+		<p>
+		<button id="submit" onclick="submitAuth()">Login</button>
+	</div> <!-- AuthPanel End -->
+	<div id="blackOverlay" hidden="true"></div>
+</body>
+
+
+</html>
