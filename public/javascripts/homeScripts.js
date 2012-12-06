@@ -1,4 +1,6 @@
 var socket = io.connect('http://ksikka.mellonstand.jit.su/');
+var username = "Tommy";
+var psswd = "techcomiscool";
 
 function submitAuth() {
 	console.log("submitAuth");
@@ -71,7 +73,7 @@ function hideSellPane() {
 function addItem(meal) {
 	newItem = $("<div>",{
 		"class" : "item",
-		itemId : 1,
+		itemId : meal.id,
 	});
 
 	topDiv = $("<div>",{
@@ -85,12 +87,12 @@ function addItem(meal) {
 	itemTitle = $("<div>",{
 		"class" : "itemTitle"
 	});
-	itemTitle.append("Cherry Pie");
+	itemTitle.append(meal.title);
 
 	itemAvailability = $("<div>",{
 		"class" : "itemAvailability"
 	});
-	itemAvailability.append("Till 9pm");
+	itemAvailability.append(meal.location);
 
 	itemProfilePicDiv = $("<div>",{
 		"class" : "itemProfilePic"
@@ -98,7 +100,7 @@ function addItem(meal) {
 
 	itemProfilePic = $("<img>",{
 		"class" : "itemProfilePic",
-		src : "blank.jpeg"
+		src : meal.prof_pic_url
 	});
 
 	itemFoodPicDiv = $("<div>",{
@@ -107,13 +109,13 @@ function addItem(meal) {
 
 	itemFoodPic = $("<img>",{
 		"class" : "itemFoodPic",
-		src : "http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/exps32523_BTOH1600957D145A.jpg"
+		src : meal.food_pic_url
 	});
 
 	itemBuyButton = $("<button>",{
 		"class" : "itemBuyButton",
 	});
-	itemBuyButton.append("$2");
+	itemBuyButton.append("$"+meal.price);
 
 	itemProfilePic.appendTo(itemProfilePicDiv);
 	itemFoodPic.appendTo(itemFoodPicDiv);
@@ -125,6 +127,8 @@ function addItem(meal) {
 	topDiv.appendTo(newItem);
 	bottomDiv.appendTo(newItem);
 
+	newItem.attr("description",meal.description);
+
 	newLiItem = $("<li>").append(newItem);
 	newLiItem.prependTo("#items > ul");
 	$("#items > ul > li").css("padding-top","0"); 
@@ -135,10 +139,6 @@ function addItem(meal) {
 		"padding-top" : "15px",
 		opacity : 1
 	},600,function() {});
-
-
-
-
 }
 
 function removeItem(itemID) {
@@ -152,13 +152,28 @@ function removeItem(itemID) {
 }
 
 function submitFoodItem() {
+	meal = {
+		name : username,
+		password : psswd,
+		title : $("#titleInput").val(),
+		price : $("#priceInput").val(),
+		location : $("#locationInput").val(),
+		description : $("#descriptionInput").val()
+	}
+
+	console.log(meal);
+	socket.emit("sellMeal",meal);
 	hideSellPane();
 }
 
 socket.on("initData",function(meals) {
-	//Do something
+	for (var i = meals.length-1; i >= 0; i--) {
+		addItem(meals[i]);
+	};
 })
 
 socket.on("newMeal",addItem);
 
 socket.on("delMeal",removeItem);
+
+
