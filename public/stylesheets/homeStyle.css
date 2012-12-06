@@ -1,0 +1,276 @@
+body {
+	/*background-color:#fff5e2;*/
+	background-color:#f2fce1;
+	padding:0;
+	margin:0;
+	font-family: 'Droid Sans', sans-serif;
+}
+
+ul {
+	padding:0;
+	list-style: none;
+	margin-bottom: 0;
+	width:100%;
+}
+
+li {
+	padding: 0;
+	margin: 0;
+}
+/*
+h1,h2,h3,h4,a,b {
+	font-family: 'Droid Sans', sans-serif;
+}
+*/
+h2 {
+	color:#71b238;
+	font-size: 2em;
+}
+h3 {
+	color:#26450a;
+	font-size: 1.2em;
+}
+h4 {
+	color:#26450a;
+	font-size: 1em;
+}
+
+button {
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 1em;
+	background-color:#549818;
+	color: white;
+	border-style: solid;
+	border-color:white;
+	border-radius:3px;
+	padding:5px 10px 5px 10px;
+	border:1px solid #34740e; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif;  text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; text-align: center; color: #FFFFFF; background-color: #4ba614;
+ 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4ba614), color-stop(100%, #008c00));
+ 	background-image: -webkit-linear-gradient(top, #4ba614, #008c00);
+ 	background-image: -moz-linear-gradient(top, #4ba614, #008c00);
+ 	background-image: -ms-linear-gradient(top, #4ba614, #008c00);
+ 	background-image: -o-linear-gradient(top, #4ba614, #008c00);
+ 	background-image: linear-gradient(top, #4ba614, #008c00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#4ba614, endColorstr=#008c00);
+}
+
+#mainBar {
+	background-color:#71b238;
+	box-sizing: border-box;
+	ms-box-sizing: border-box;
+	webkit-box-sizing: border-box;
+	moz-box-sizing: border-box;
+	width:100%;
+	overflow:hidden;
+	padding:10px;
+	position: fixed;
+	z-index: 3;
+	box-shadow: 0 1px 6px rgba(28, 55, 3, 0.2);
+}
+
+
+#menu{
+	float:left;
+	margin: 0 auto;
+}
+
+#searchBar {
+	width: 34%;
+	min-width: 100px;
+	margin: 0 auto;
+
+
+}
+
+#searchBarInput {
+	background-color:#f2fce1;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 1em;
+	font-style: bold;
+	border-width: 0;
+	border-radius:3px;
+	padding:0.5em;
+	width:100%;
+	max-width:367px;
+}
+
+#searchBarForm {
+	max-width:300px;
+
+}
+
+input[type=text] {
+	padding: 2px;
+	width: 100%;
+	min-width: 150px;
+	margin: 0 auto;
+}
+
+#sell {
+	float:right;
+}
+
+#items {
+	border-style: solid;
+	border-width:1px;
+	border-color:#c4dd7f;
+	width:367px;
+	margin: 0 auto;
+	padding: 22px 0 0 0;
+	min-width:367px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+	z-index:1;
+
+}
+
+#items > ul > li:first-child {
+	list-style:none;
+	padding-top: 15px;
+}
+
+#items > ul > li {
+	list-style:none;
+}
+
+.top {
+	height:80%;
+	overflow: hidden;
+}
+
+.bottom {
+	height:10%;
+	padding: 4px 8px 10px 8px;
+	position: relative;
+	background-color:#71b238;
+	color: white;
+}
+
+.item {
+	position: relative;
+	overflow: hidden;
+	height:130px;
+	padding:0;
+}
+
+.itemProfilePic {
+	height:100%;
+	overflow: hidden;
+	position: relative;
+	float:left;
+	overflow: hidden;
+	margin-left:-30px;
+}
+
+.itemFoodPic {
+	position: relative;
+	float:right;
+	overflow: hidden;
+	/* width:84.3%; */
+	width:300px;
+	max-width:400px;
+	z-index: 1;
+}
+
+.itemBuyButton {
+	position: absolute;
+	top:35px;
+	right:7px;
+	z-index: 2;
+}
+
+.itemTitle {
+	float: left;
+	margin: 0 auto;
+}
+.itemAvailability {
+	float:right;
+	margin: 0 auto;
+}
+
+#infoPane, #authPanel {
+	background-color: white;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 0 5px 5px 0;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+	/*
+	-moz-box-shadow: 1px 2px 6px rgba(0,0,0, 0.5);
+	-webkit-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+	*/
+	float:left;
+	border-style: solid;
+	border-color:#c4dd7f;
+	border-width: 1px;
+	/*width:30%;*/
+	/*height: 60%;*/
+	padding: 4em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	min-width:250px;
+}
+
+#infoPane {
+	position: fixed;
+	z-index: -1;
+}
+
+#authPanel {
+	position: absolute;
+	
+	width: 400px;
+	height: 400px;
+	left:50%;
+	top:50%;
+	margin-left:-250px;
+	margin-top:-250px;
+
+}
+
+#authPanel > form {
+	width: 10px;
+}
+
+#sellPane {
+
+	background-color: white;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding: 2em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	position: fixed;
+	z-index:4;
+}
+
+#sellPane > input {
+	margin-bottom:-2px;
+}
+
+#sellPane > textarea {
+	min-width: 300px;
+	min-height: 150px;
+}
+
+#sellPane > h2 {
+	margin-bottom: 0px;
+}
+
+#sellPane > h4 {
+	padding:0;
+	margin-bottom:0;
+}
+
+#blackOverlay {
+	background-color:black;
+	opacity:0.5;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	position: fixed;
+	top: 0;
+	left:0;
+}
+
+
+
