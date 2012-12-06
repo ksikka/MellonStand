@@ -1,5 +1,5 @@
 var socket = io.connect('http://ksikka.mellonstand.jit.su/');
-var username = "Tommy";
+var username = "tommy";
 var psswd = "techcomiscool";
 var allMeals = [];
 
@@ -60,6 +60,14 @@ function showInfoPane(id) {
 
 function hideItem() {
 	console.log("Hide Item Pressed");
+	$("#infoPane").animate({
+		left: $(window).width()/2-$("#items").width()/2
+	},600,function(){
+		$("#infoPane").hide();
+	})
+	$("#items").animate({
+		"margin" : "0 0 0 34%"
+	},600,function(){})
 }
 
 function showSellPane() {
@@ -168,6 +176,8 @@ function addItem(meal) {
 function deletePressed(id) {
 	console.log("Deleting item: " + id)
 	removeItem(id);
+	socket.emit("delMeal",id)
+	hideItem();
 }
 
 function removeItem(itemID) {
@@ -198,7 +208,7 @@ function submitFoodItem() {
 }
 
 socket.on("initData",function(meals) {
-	for (var i = meals.length-1; i >= 0; i--) {
+	for (var i = 0; i < meals.length; i++) {
 		allMeals[meals[i].id] = meals[i]
 		addItem(meals[i]);
 	};
