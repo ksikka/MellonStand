@@ -1,6 +1,7 @@
 var socket = io.connect('http://ksikka.mellonstand.jit.su/');
 var username = "Tommy";
 var psswd = "techcomiscool";
+var allMeals = [];
 
 function submitAuth() {
 	console.log("submitAuth");
@@ -23,20 +24,42 @@ function submitAuth() {
 
 }
 
-function boop() {
+function openItem(id) {
 	$("#items").animate({
 		margin:"0px 0px 0px 15%",
 	},600,function(){})
-	showInfoPane()
+	showInfoPane(id)
 }
 
-function showInfoPane() {
+function showInfoPane(id) {
 	$("#infoPane").css("top","100px")
 	$("#infoPane").css("left",$(window).width()/2-$("#items").width()/2)
+	$("#itemInfoTitle").text(allMeals[id].title + " - $"+ allMeals[id].price)
+	$("#itemInfoSeller").text(allMeals[id].name)
+	$("#itemInfoLocation").text(allMeals[id].location)
+	$("#itemInfoContact").text(allMeals[id].contact)
+	$("#itemInfoDesc").text(allMeals[id].description)
+
 	$("#infoPane").show();
+
+	if(allMeals[id].name != username) {
+		$("#deletebtn").hide();
+	}
+	else {
+		$("#deletebtn").show();
+		$("#deletebtn").attr("onclick",
+										"deletePressed("+id+")")
+	}
+
 	$("#infoPane").animate({
 		left : $("#items").width()+$(window).width()*0.15
-	},600,function(){})
+	},600,function(){
+
+	})
+}
+
+function hideItem() {
+	console.log("Hide Item Pressed");
 }
 
 function showSellPane() {
@@ -71,6 +94,8 @@ function hideSellPane() {
 }
 
 function addItem(meal) {
+	allMeals[meal.id] = meal
+
 	newItem = $("<div>",{
 		"class" : "item",
 		itemId : meal.id,
@@ -114,6 +139,7 @@ function addItem(meal) {
 
 	itemBuyButton = $("<button>",{
 		"class" : "itemBuyButton",
+		onclick : "openItem("+meal.id+")"
 	});
 	itemBuyButton.append("$"+meal.price);
 
@@ -127,8 +153,6 @@ function addItem(meal) {
 	topDiv.appendTo(newItem);
 	bottomDiv.appendTo(newItem);
 
-	newItem.attr("description",meal.description);
-
 	newLiItem = $("<li>").append(newItem);
 	newLiItem.prependTo("#items > ul");
 	$("#items > ul > li").css("padding-top","0"); 
@@ -141,7 +165,14 @@ function addItem(meal) {
 	},600,function() {});
 }
 
+function deletePressed(id) {
+	console.log("Deleting item: " + id)
+	removeItem(id);
+}
+
 function removeItem(itemID) {
+	allMeals[itemID] = null
+
 	toBeRemoved = $("div[itemid = "+itemID+"]")
 	toBeRemoved.animate({
 		"margin-top": "-130px",
@@ -156,11 +187,11 @@ function submitFoodItem() {
 		name : username,
 		password : psswd,
 		title : $("#titleInput").val(),
-		price : $("#priceInput").val(),
+		price : (($("#priceInput").val()).replace("$","")),
+		contact : $("#phoneNumberInput").val(),
 		location : $("#locationInput").val(),
 		description : $("#descriptionInput").val()
 	}
-
 	console.log(meal);
 	socket.emit("sellMeal",meal);
 	hideSellPane();
@@ -168,6 +199,7 @@ function submitFoodItem() {
 
 socket.on("initData",function(meals) {
 	for (var i = meals.length-1; i >= 0; i--) {
+		allMeals[meals[i].id] = meals[i]
 		addItem(meals[i]);
 	};
 })

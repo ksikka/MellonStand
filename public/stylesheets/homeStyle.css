@@ -63,7 +63,7 @@ button {
 	overflow:hidden;
 	padding:10px;
 	position: fixed;
-	z-index: 3;
+	z-index: 10;
 	box-shadow: 0 1px 6px rgba(28, 55, 3, 0.2);
 }
 
@@ -120,7 +120,7 @@ input[type=text] {
 	padding: 22px 0 0 0;
 	min-width:367px;
 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-	z-index:1;
+	z-index:3;
 
 }
 
@@ -151,6 +151,7 @@ input[type=text] {
 	overflow: hidden;
 	height:130px;
 	padding:0;
+	z-index: 3;
 }
 
 .itemProfilePic {
@@ -169,14 +170,14 @@ input[type=text] {
 	/* width:84.3%; */
 	width:300px;
 	max-width:400px;
-	z-index: 1;
+	z-index: 2;
 }
 
 .itemBuyButton {
 	position: absolute;
 	top:35px;
 	right:7px;
-	z-index: 2;
+	z-index: 3;
 }
 
 .itemTitle {
@@ -212,12 +213,11 @@ input[type=text] {
 
 #infoPane {
 	position: fixed;
-	z-index: -1;
+	z-index:0;
 }
 
 #authPanel {
 	position: absolute;
-	
 	width: 400px;
 	height: 400px;
 	left:50%;
@@ -264,7 +264,7 @@ input[type=text] {
 #blackOverlay {
 	background-color:black;
 	opacity:0.5;
-	z-index: 3;
+	z-index: 5;
 	width: 100%;
 	height: 100%;
 	padding: 0;
