@@ -36,12 +36,25 @@ app.listen(8080, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
 
+function sanitize (s) {
+  var clean = s.replace("<","&lt;").replace(">","&gt;");
+  if (clean != s)
+    return sanitize(clean);
+  return clean;
+}
+
 // id is incremented
 var curr_id = 0;
 
 var meals = [];
 
 function createMeal (data) {
+  data.name = sanitize(data.name);
+  data.title = sanitize(data.title);
+  data.description = sanitize(data.description);
+  data.location = sanitize(data.location);
+
+
   data.id = curr_id; curr_id += 1;
   if (data.name == "tommy" || data.name == "david" || data.name == "karan")
     data.prof_pic_url = "/images/prof/" + data.name + ".jpg";
@@ -59,7 +72,11 @@ function createMeal (data) {
   } else {
     data.food_pic_url = "/images/food/blank.gif";
   }
+  var r = /\d+.?\d*/;
+  data.price = (data.price.match(r));
   data.price = parseFloat(data.price);
+  data.price = isNaN(data.price) ? 0 : data.price.toFixed(2);
+
   meals.push(data);
   return data;
 }
@@ -82,6 +99,8 @@ io.sockets.on('connection',function (socket) {
   socket.emit('initData', getInitialData());
 
   socket.on('sellMeal',function(data){
+    if (!data.name.match(/[a-zA-Z]+/)) return;
+    if (data.name.length < 3) return;
     var new_food_item = createMeal(data);
     io.sockets.emit('newMeal',new_food_item);
   });
