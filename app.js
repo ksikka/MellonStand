@@ -43,8 +43,9 @@ var meals = [];
 
 function createMeal (data) {
   data.id = curr_id; curr_id += 1;
-  data.prof_pic_url = "/images/prof/" + data.name + ".jpg"
-  data.food_url = "/images/food/" + data.title + ".jpg"
+  data.prof_pic_url = "/images/prof/" + data.name + ".jpg";
+  data.food_url = "/images/food/" + data.title + ".jpg";
+  data.price = parseFloat(data.price);
   delete data['password'];
   meals.push(data);
   return data;
