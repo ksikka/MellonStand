@@ -1,5 +1,5 @@
 var socket = io.connect('http://ksikka.mellonstand.jit.su/');
-var username = "Tommy";
+var username = "tommy";
 var psswd = "techcomiscool";
 var allMeals = [];
 
