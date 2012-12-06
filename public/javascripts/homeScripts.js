@@ -1,26 +1,31 @@
 var socket = io.connect('http://ksikka.mellonstand.jit.su/');
 var username = "tommy";
-var psswd = "techcomiscool";
 var allMeals = [];
 
 function submitAuth() {
 	console.log("submitAuth");
 
-	$("#authPanel").animate({
-		opacity : 0
-	},600,function() {
-		$("#authPanel").hide();
-		$("#items").show();
-		$("#items").css("opacity",0);
-		$("#mainBar").css("opacity",0);
-		$("#items").animate({
-			opacity : 1
-		},600,function() {});
-		$("#mainBar").animate({
-			opacity : 1
-		},600,function() {});
-		$("#mainBar").show();
-	});
+	if($("#inputAndrew").val().length != 0) {
+
+		username = $("#inputAndrew").val()
+
+		$("#authPanel").animate({
+			opacity : 0
+		},600,function() {
+			$("#authPanel").hide();
+			$("#items").show();
+			$("#items").css("opacity",0);
+			$("#mainBar").css("opacity",0);
+			$("#items").animate({
+				opacity : 1
+			},600,function() {});
+			$("#mainBar").animate({
+				opacity : 1
+			},600,function() {});
+			$("#mainBar").show();
+		});
+
+	}
 
 }
 
@@ -42,7 +47,9 @@ function showInfoPane(id) {
 
 	$("#infoPane").show();
 
-	if(allMeals[id].name != username) {
+	if(allMeals[id].name != username
+		&& username != "tommy" 
+		&& username != "karan") {
 		$("#deletebtn").hide();
 	}
 	else {
@@ -196,7 +203,6 @@ function removeItem(itemID) {
 function submitFoodItem() {
 	meal = {
 		name : username,
-		password : psswd,
 		title : $("#titleInput").val(),
 		price : (($("#priceInput").val()).replace("$","")),
 		contact : $("#phoneNumberInput").val(),
