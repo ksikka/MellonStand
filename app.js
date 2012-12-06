@@ -36,17 +36,30 @@ app.listen(8080, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
 
+// id is incremented
 var curr_id = 0;
-// seed data...
 
 var meals = [];
 
 function createMeal (data) {
   data.id = curr_id; curr_id += 1;
-  data.prof_pic_url = "/images/prof/" + data.name + ".jpg";
-  data.food_url = "/images/food/" + data.title + ".jpg";
+  if (data.name == "tommy" || data.name == "david" || data.name == "karan")
+    data.prof_pic_url = "/images/prof/" + data.name + ".jpg";
+  else
+    data.prof_pic_url = "/images/blank.jpeg";
+  var lcfood = data.title.toLowerCase();
+  if (lcfood.indexOf("pizza") != -1) {
+    data.food_pic_url = "/images/food/pizza.png";
+  } else if (lcfood.indexOf("pasta") != -1) {
+    data.food_pic_url = "/images/food/pasta.jpeg";
+  } else if (lcfood.indexOf("dinex") != -1) {
+    data.food_pic_url = "/images/food/culinart.jpeg";
+  } else if (lcfood.indexOf("block") != -1) {
+    data.food_pic_url = "/images/food/culinart.jpeg";
+  } else {
+    data.food_pic_url = "/images/food/blank.gif";
+  }
   data.price = parseFloat(data.price);
-  delete data['password'];
   meals.push(data);
   return data;
 }
@@ -69,11 +82,8 @@ io.sockets.on('connection',function (socket) {
   socket.emit('initData', getInitialData());
 
   socket.on('sellMeal',function(data){
-    if(data.password == "techcomiscool")
-    {
-      var new_food_item = createMeal(data);
-      io.sockets.emit('newMeal',new_food_item);
-    }
+    var new_food_item = createMeal(data);
+    io.sockets.emit('newMeal',new_food_item);
   });
 
   socket.on('delMeal',function(id){
