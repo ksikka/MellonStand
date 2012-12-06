@@ -1,3 +1,5 @@
+var socket = io.connect('http://ksikka.mellonstand.jit.su/');
+
 function submitAuth() {
 	console.log("submitAuth");
 
@@ -53,7 +55,20 @@ function showSellPane() {
 	})
 }
 
-function addItem() {
+function hideSellPane() {
+	$("#sellPane").animate({
+		top : (-$("#sellPane").height())
+	},600,function() {
+		$("#sellPane").hide();
+		$("#blackOverlay").animate({
+			opacity : 0
+		},600,function() {
+			$("#blackOverlay").hide();
+		})
+	})
+}
+
+function addItem(meal) {
 	newItem = $("<div>",{
 		"class" : "item",
 		itemId : 1,
@@ -137,5 +152,13 @@ function removeItem(itemID) {
 }
 
 function submitFoodItem() {
-
+	hideSellPane();
 }
+
+socket.on("initData",function(meals) {
+	//Do something
+})
+
+socket.on("newMeal",addItem);
+
+socket.on("delMeal",removeItem);

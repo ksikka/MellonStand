@@ -68,9 +68,11 @@ button {
 }
 
 
-#menu{
+#logo {
 	float:left;
-	margin: 0 auto;
+	font-size: 1.75em;
+	color: white;
+	margin: 0 auto
 }
 
 #searchBar {
