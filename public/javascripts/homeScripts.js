@@ -66,17 +66,18 @@ function hideItem() {
 		$("#infoPane").hide();
 	})
 	$("#items").animate({
-		"margin" : "0 0 0 34%"
-	},600,function(){})
+		margin : "0 0 0 " + ($(window).width()/2-$("#items").width()/2)
+	},600,function(){
+		$("#items").css("margin","0 auto")
+	})
 }
 
 function showSellPane() {
 	$("#sellPane").css("left",$(window).width()/2-$("#sellPane").width()/2-25)
-	overlayOpacity = $("#blackOverlay").css("opacity")
 	$("#blackOverlay").show();
 	$("#blackOverlay").css("opacity",0)
 	$("#blackOverlay").animate({
-		opacity : overlayOpacity
+		opacity : 0.5
 	},600,function() {
 		$("#sellPane").show()
 		topPos = $("#sellPane").css("top")
